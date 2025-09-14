@@ -3,19 +3,25 @@ package racingcar;
 import java.util.Random;
 
 public class Car {
+    private static final int MOVE_STANDARD = 4;//기준값 상수화
+
+    //필드
     String carName;
-    int carPosition = 0;
-    private static final int MOVE_STANDARD = 4;
+    private int carPosition = 0;
+
+    //랜덤 객체 생성
+    Random random = new Random();
 
     public Car (String name){
         this.carName = name;
     }
 
-    public void move (){
+    private int getNumber(){
+        return random.nextInt(10);
+    }
 
-        Random random = new Random();
-        int randomNumber = random.nextInt(10);
-        if (randomNumber >= MOVE_STANDARD){
+    public void move (){
+        if (getNumber() >= MOVE_STANDARD){
             carPosition++;
         }
     }
