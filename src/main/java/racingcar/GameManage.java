@@ -4,17 +4,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GameManage {
-    List<Car> cars = new ArrayList<>();
+    private ArrayList<Car> cars = new ArrayList<>();
 
     public void addCar (Car car){
         this.cars.add(car);
     }
 
+   private void raceOneRound(){
+        for (Car car : cars){
+            car.move();
+        }
+    }
+
     public void race (int round) {
         for (int i = 0 ; i < round;i++){
-            for (Car car : cars){
-                car.move();
-            }
+            raceOneRound();
         }
     }
 
