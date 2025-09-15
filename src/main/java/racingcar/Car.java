@@ -12,25 +12,25 @@ public class Car {
     //랜덤 객체 생성
     Random random = new Random();
 
-    public Car (String name){
+    public Car(String name) {
         this.carName = name;
     }
 
-    private int getNumber(){
+    private int getNumber() {
         return random.nextInt(10);
     }
 
-    public void move (){
-        if (getNumber() >= MOVE_STANDARD){
+    public void move() {
+        if (getNumber() >= MOVE_STANDARD) {
             carPosition++;
         }
     }
 
-    public int getCarPosition(){
+    public int getCarPosition() {
         return carPosition;
     }
 
-    public String getCarName(){
+    public String getCarName() {
         return carName;
     }
 }
