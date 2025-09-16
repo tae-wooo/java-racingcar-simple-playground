@@ -29,16 +29,14 @@ class GameManageTest {
     }
 
 
-    private boolean isBetween(int randomNumber, int min, int max) {
-        return min <= randomNumber && randomNumber <= max;
-    }
+
 
     @Test
     @DisplayName("생성된 숫자가 0 이상 9 이하인지 확인")
     void createNumber_Test() {
         GameManage gameManager = new GameManage();
         int randomNumber = gameManager.createNumber();
-        assertTrue(isBetween(randomNumber, 0, 9));
+        assertThat(randomNumber).isBetween(0, 9);
     }
 
     @Test
