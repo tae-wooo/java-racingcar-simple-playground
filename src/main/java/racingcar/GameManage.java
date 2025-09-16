@@ -10,7 +10,7 @@ public class GameManage {
 
     Random random = new Random();
 
-    private List<Car> cars = new ArrayList<>();
+    private final List<Car> cars = new ArrayList<>();
     private List<String> winners = new ArrayList<>();
 
     public void addCar(Car car) {
