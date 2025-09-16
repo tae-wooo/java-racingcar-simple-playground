@@ -23,7 +23,6 @@ class CarTest {
 
 
     @Test
-
     @DisplayName("전진 조건(4 이상)을 만족하면 위치가 1 증가")
     void car_move_test() {
         //given
@@ -36,9 +35,7 @@ class CarTest {
         assertThat(car.getCarPosition()).isEqualTo(1);
     }
 
-
     @Test
-
     @DisplayName("정지 조건(3 이하)을 만족하면 위치가 변함X")
     void car_stop_test() {
         //given
