@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.Random;
 
-
 public class GameManage {
 
     Random random = new Random();

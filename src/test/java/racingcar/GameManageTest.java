@@ -29,8 +29,6 @@ class GameManageTest {
     }
 
 
-
-
     @Test
     @DisplayName("생성된 숫자가 0 이상 9 이하인지 확인")
     void createNumber_Test() {
