@@ -16,7 +16,7 @@ public class GameManage {
 
     public void raceOneRound() {
         for (Car car : cars.getCars()) {
-            car.move();
+            car.moveCar();
         }
     }
 
@@ -28,13 +28,13 @@ public class GameManage {
         findWinner();
     }
 
-    private int maxPosition() {
+    private int findMaxPosition() {
         return cars.getCars().stream().mapToInt(Car::getCarPosition).max().orElse(0);
     }
 
     public void findWinner() {
         List<String> winnerNames = cars.getCars().stream()
-                .filter(car -> car.getCarPosition() == maxPosition())
+                .filter(car -> car.getCarPosition() == findMaxPosition())
                 .map(Car::getCarName)
                 .collect(Collectors.toList());
 

@@ -14,7 +14,7 @@ class CarsTest {
         List<String> carNames = Arrays.asList("car1", "car2", "car3");
 
         // when
-        Cars cars = Cars.carsCreate(carNames);
+        Cars cars = Cars.createCars(carNames);
 
         // then
         assertEquals(3, cars.getCars().size());
@@ -26,8 +26,8 @@ class CarsTest {
     @Test
     void 자동차를추가할수있다() {
         // given
-        Cars cars = Cars.carsCreate(Arrays.asList("car1"));
-        Car car2 = Car.namePositionOf("car2");
+        Cars cars = Cars.createCars(Arrays.asList("car1"));
+        Car car2 = Car.createCarByCarName("car2");
 
         // when
         cars.addCar(car2);

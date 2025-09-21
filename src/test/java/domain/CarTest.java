@@ -12,7 +12,7 @@ class CarTest {
         String name = "car1";
 
         // when
-        Car car = Car.namePositionOf(name);
+        Car car = Car.createCarByCarName(name);
 
         // then
         assertThat(car.getCarName()).isEqualTo("car1");
@@ -22,11 +22,11 @@ class CarTest {
     @Test
     void 랜덤숫자가4이상이면전진할수있다() {
         // given
-        Car car = Car.namePositionOf("car1");
+        Car car = Car.createCarByCarName("car1");
 
         // when
         for (int i = 0; i < 10; i++) {
-            car.move();
+            car.moveCar();
         }
 
         // then

@@ -10,10 +10,10 @@ public class Cars {
         this.cars = new ArrayList<>();
     }
 
-    public static Cars carsCreate(List<String> carNames) {
+    public static Cars createCars(List<String> carNames) {
         Cars cars = new Cars();
         for (String name : carNames) {
-            cars.addCar(Car.namePositionOf(name));
+            cars.addCar(Car.createCarByCarName(name));
         }
         return cars;
     }
