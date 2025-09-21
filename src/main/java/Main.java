@@ -8,17 +8,14 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-
         List<String> carNames = InputView.inputCarName();
         int roundCount = InputView.inputRound();
 
-        Cars cars = Cars.carsCreate(carNames);
-        Winners winners = Winners.winnersCreate();
+        Cars cars = Cars.createCars(carNames);
 
-        GameManage game = new GameManage(cars, winners);
+        GameManage game = new GameManage(cars);
 
-        game.race(roundCount);
-        ResultView.printWinners(game.getWinners().getWinners());
-
+        Winners winners = game.race(roundCount);
+        ResultView.printWinners(winners.getWinners());
     }
 }

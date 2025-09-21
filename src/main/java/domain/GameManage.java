@@ -2,16 +2,16 @@ package domain;
 
 import view.ResultView;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class GameManage {
     private final Cars cars;
-    private final Winners winners;
 
-    public GameManage(Cars cars, Winners winners) {
+    public GameManage(Cars cars) {
         this.cars = cars;
-        this.winners = winners;
     }
 
     public void raceOneRound() {
@@ -20,28 +20,30 @@ public class GameManage {
         }
     }
 
-    public void race(int round) {
+    public Winners race(int round) {
         for (int i = 0; i < round; i++) {
             raceOneRound();
             ResultView.printRoundResult(cars.getCars());
         }
-        findWinner();
+        return createWinners();
     }
 
-    private int findMaxPosition() {
-        return cars.getCars().stream().mapToInt(Car::getCarPosition).max().orElse(0);
+    private Map<Integer, List<Car>> groupPosition() {
+        return cars.getCars().stream().collect(Collectors.groupingBy(Car::getCarPosition));
     }
 
-    public void findWinner() {
-        List<String> winnerNames = cars.getCars().stream()
-                .filter(car -> car.getCarPosition() == findMaxPosition())
+    public Winners createWinners() {
+        Map<Integer, List<Car>> carsByPosition = groupPosition();
+
+        List<Car> winnersGroup = carsByPosition.entrySet().stream()
+                .max(Map.Entry.comparingByKey())
+                .map(Map.Entry::getValue)
+                .orElse(Collections.emptyList());
+
+        List<String> winnerNames = winnersGroup.stream()
                 .map(Car::getCarName)
                 .collect(Collectors.toList());
 
-        winners.setWinners(winnerNames);
-    }
-
-    public Winners getWinners() {
-        return winners;
+        return Winners.of(winnerNames);
     }
 }
