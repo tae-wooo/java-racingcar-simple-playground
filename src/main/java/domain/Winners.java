@@ -10,7 +10,7 @@ public class Winners {
         this.winners = new ArrayList<>();
     }
 
-    public static Winners winnersCreate() {
+    public static Winners createWinners() {
         return new Winners();
     }
 
