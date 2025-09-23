@@ -9,7 +9,7 @@ class CarTest {
     @Test
     void 자동차는이름과초기위치를가진다() {
         // given
-        String name = "car1";
+        CarName name = new CarName("car1");
 
         // when
         Car car = Car.createCarByCarName(name);
@@ -22,7 +22,7 @@ class CarTest {
     @Test
     void 랜덤숫자가4이상이면전진할수있다() {
         // given
-        Car car = Car.createCarByCarName("car1");
+        Car car = Car.createCarByCarName(new CarName("car1"));
 
         // when
         for (int i = 0; i < 10; i++) {
