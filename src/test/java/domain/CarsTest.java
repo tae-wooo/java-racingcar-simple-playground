@@ -27,7 +27,7 @@ class CarsTest {
     void 자동차를추가할수있다() {
         // given
         Cars cars = Cars.createCars(Arrays.asList("car1"));
-        Car car2 = Car.createCarByCarName("car2");
+        Car car2 = Car.createCarByCarName(new CarName("car2"));
 
         // when
         cars.addCar(car2);
