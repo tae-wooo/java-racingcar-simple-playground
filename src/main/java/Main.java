@@ -8,13 +8,9 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        List<String> carNames = InputView.inputCarName();
+        Cars cars = InputView.inputCarName();
         int roundCount = InputView.inputRound();
-
-        Cars cars = Cars.createCars(carNames);
-
         GameManage game = new GameManage(cars);
-
         Winners winners = game.race(roundCount);
         ResultView.printWinners(winners.getWinners());
     }
