@@ -2,7 +2,6 @@ package domain;
 
 import util.GenerateNumber;
 
-
 public class Car {
     private static final int STANDARD = 4;
 
