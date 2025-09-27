@@ -1,7 +1,5 @@
 package domain;
 
-import view.ResultView;
-
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -18,14 +16,6 @@ public class GameManage {
         for (Car car : cars.getCars()) {
             car.moveCar();
         }
-    }
-
-    public Winners race(int round) {
-        for (int i = 0; i < round; i++) {
-            raceOneRound();
-            ResultView.printRoundResult(cars.getCars());
-        }
-        return createWinners();
     }
 
     private Map<Integer, List<Car>> groupPosition() {
